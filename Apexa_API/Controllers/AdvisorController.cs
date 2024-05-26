@@ -1,82 +1,55 @@
+using Apexa_API.Models;
+using Apexa_API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Apexa_API.Controllers
 {
     [ApiController]
-    [Route("Advisors")]
+    [Route("api/Advisors")]
     public class AdvisorController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<AdvisorController> _logger;
+        private readonly IAdvisorService _advisorService;
 
-        public AdvisorController(ILogger<AdvisorController> logger)
+        public AdvisorController(IAdvisorService advisorService, ILogger<AdvisorController> logger)
         {
+            _advisorService = advisorService;
             _logger = logger;
         }
 
         [HttpGet(Name = "GetAdvisors")]
-        public IEnumerable<WeatherForecast> GetAllAdvisors()
+        public ActionResult<List<Advisor>> GetAllAdvisors()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var result = _advisorService.GetAdvisors();
+            return Ok(result);
         }
 
-        [HttpGet(Name = "GetAdvisor")]
-        [Route("{advisorId:int}")]
-        public IEnumerable<WeatherForecast> GetAdvisorById(int advisorId)
+        [HttpGet("{advisorId:int}", Name = "GetAdvisor")]
+        public ActionResult<Advisor> GetAdvisorById(int advisorId)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var result = _advisorService.GetAdvisorById(advisorId);
+            return Ok(result);
         }
 
         [HttpPost(Name = "CreateAdvisor")]
-        public IEnumerable<WeatherForecast> CreateAdvisor()
+        public ActionResult<Advisor> CreateAdvisor([FromBody] Advisor advisor)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var result = _advisorService.CreateAdvisor(advisor);
+            return Ok(result);
         }
 
         [HttpPut(Name = "UpdateAdvisor")]
-        public IEnumerable<WeatherForecast> UpdateAdvisor()
+        public ActionResult<Advisor> UpdateAdvisor([FromBody] Advisor advisor)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            var result = _advisorService.UpdateAdvisor(advisor);
+            return Ok(result);
         }
 
-        [HttpDelete(Name = "DeleteAdvisor")]
-        public IEnumerable<WeatherForecast> DeleteAdvisor()
+        [HttpDelete("{advisorId:int}/Delete", Name = "DeleteAdvisor")]
+        public ActionResult DeleteAdvisor(int advisorId)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            _advisorService.DeleteAdvisorById(advisorId);
+            return Ok();
         }
     }
 }
