@@ -1,0 +1,15 @@
+.form-content {
+  background-color: rgb(228, 230, 233);
+  padding: 24px;
+  text-align: center;
+  height: calc(100% - 54px);
+}
+
+.form-card {
+  background-color: white;
+  padding: 24px;
+  width: 70vw;
+  margin: auto;
+  border-radius: 10px;
+  text-align: left;
+}
