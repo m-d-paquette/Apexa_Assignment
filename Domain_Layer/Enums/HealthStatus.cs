@@ -1,4 +1,4 @@
-﻿namespace Apexa_API.Enum
+﻿namespace Domain_Layer.Enums
 {
     public enum HealthStatus
     {

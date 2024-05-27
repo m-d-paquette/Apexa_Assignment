@@ -1,9 +1,11 @@
-﻿using Apexa_API.Enum;
+﻿using Domain_Layer.Enums;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace Apexa_API.Models
+namespace Domain_Layer.Entities
 {
+    [Index(nameof(SocialInsuranceNumber), IsUnique = true)]
     public class Advisor
     {
         [Key]
@@ -16,7 +18,7 @@ namespace Apexa_API.Models
         public string? PhoneNumber { get; set; }
         public HealthStatus HealthStatus { get; set; }
         [JsonIgnore]
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
         [JsonIgnore]
         public DateTime CreatedAt { get; set; }
         [JsonIgnore]

@@ -1,4 +1,4 @@
-﻿namespace Apexa_API.Caching
+﻿namespace Infrastructure_Layer.Caching
 {
     public class MruCache<TKey, TValue> where TKey : notnull
     {

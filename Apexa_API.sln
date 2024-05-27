@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apexa_API", "Apexa_API\Apexa_API.csproj", "{A85B6209-E168-4CE1-BCA9-4BDE48691A00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Apexa_API", "Apexa_API\Apexa_API.csproj", "{A85B6209-E168-4CE1-BCA9-4BDE48691A00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain_Layer", "Domain_Layer\Domain_Layer.csproj", "{34CEB403-5DE3-433B-A8BC-3C66AB47EA38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application_Layer", "Application_Layer\Application_Layer.csproj", "{5EEA7974-0107-4F68-9234-5AC4D0565E74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure_Layer", "Infrastructure_Layer\Infrastructure_Layer.csproj", "{CA7D47C8-91B1-4876-B84E-34618EFCE1E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apexa_API.test", "Apexa_API.test\Apexa_API.test.csproj", "{96EEFF9B-E531-45A3-8637-6BECF2967D20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{A85B6209-E168-4CE1-BCA9-4BDE48691A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A85B6209-E168-4CE1-BCA9-4BDE48691A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A85B6209-E168-4CE1-BCA9-4BDE48691A00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34CEB403-5DE3-433B-A8BC-3C66AB47EA38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34CEB403-5DE3-433B-A8BC-3C66AB47EA38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34CEB403-5DE3-433B-A8BC-3C66AB47EA38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34CEB403-5DE3-433B-A8BC-3C66AB47EA38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EEA7974-0107-4F68-9234-5AC4D0565E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EEA7974-0107-4F68-9234-5AC4D0565E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EEA7974-0107-4F68-9234-5AC4D0565E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EEA7974-0107-4F68-9234-5AC4D0565E74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA7D47C8-91B1-4876-B84E-34618EFCE1E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA7D47C8-91B1-4876-B84E-34618EFCE1E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA7D47C8-91B1-4876-B84E-34618EFCE1E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA7D47C8-91B1-4876-B84E-34618EFCE1E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96EEFF9B-E531-45A3-8637-6BECF2967D20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96EEFF9B-E531-45A3-8637-6BECF2967D20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96EEFF9B-E531-45A3-8637-6BECF2967D20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96EEFF9B-E531-45A3-8637-6BECF2967D20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,16 +1,16 @@
-using Apexa_API.Caching;
-using Apexa_API.Data;
-using Apexa_API.Models;
-using Apexa_API.Repositories;
-using Apexa_API.Services;
-using System;
+using Infrastructure_Layer.Caching;
+using Infrastructure_Layer.Data;
+using Domain_Layer.Entities;
+using Infrastructure_Layer.Repositories;
+using Application_Layer.Services;
+using Application_Layer.Interfaces;
+using Domain_Layer.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 // register services
 builder.Services.AddScoped<IAdvisorService, AdvisorService>();
+
 
 // register repositories
 builder.Services.AddScoped<IAdvisorRepository, AdvisorRepository>();
@@ -26,11 +26,24 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//cross-origin policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "AllowLocalHost",
+                      policy =>
+                      {
+                          policy.SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost");
+                          policy.AllowAnyMethod();
+                          policy.AllowAnyHeader();
+                      });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors("AllowLocalHost");
     app.UseSwagger();
     app.UseSwaggerUI();
 }

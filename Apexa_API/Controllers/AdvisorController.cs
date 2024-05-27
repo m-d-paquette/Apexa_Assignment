@@ -1,5 +1,5 @@
-using Apexa_API.Models;
-using Apexa_API.Services;
+using Domain_Layer.Entities;
+using Application_Layer.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Apexa_API.Controllers
@@ -18,28 +18,28 @@ namespace Apexa_API.Controllers
         }
 
         [HttpGet(Name = "GetAdvisors")]
-        public ActionResult<List<Advisor>> GetAllAdvisors()
+        public ActionResult GetAllAdvisors()
         {
             var result = _advisorService.GetAdvisors();
             return Ok(result);
         }
 
         [HttpGet("{advisorId:int}", Name = "GetAdvisor")]
-        public ActionResult<Advisor> GetAdvisorById(int advisorId)
+        public ActionResult GetAdvisorById(int advisorId)
         {
             var result = _advisorService.GetAdvisorById(advisorId);
             return Ok(result);
         }
 
         [HttpPost(Name = "CreateAdvisor")]
-        public ActionResult<Advisor> CreateAdvisor([FromBody] Advisor advisor)
+        public ActionResult CreateAdvisor([FromBody] Advisor advisor)
         {
             var result = _advisorService.CreateAdvisor(advisor);
             return Ok(result);
         }
 
         [HttpPut(Name = "UpdateAdvisor")]
-        public ActionResult<Advisor> UpdateAdvisor([FromBody] Advisor advisor)
+        public ActionResult UpdateAdvisor([FromBody] Advisor advisor)
         {
             var result = _advisorService.UpdateAdvisor(advisor);
             return Ok(result);

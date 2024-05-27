@@ -1,9 +1,11 @@
-﻿using Apexa_API.Data;
-using Apexa_API.Models;
+﻿using Infrastructure_Layer.Data;
+using Domain_Layer.Entities;
+using Domain_Layer.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
+using Domain_Layer.Enums;
 
-namespace Apexa_API.Repositories
+namespace Infrastructure_Layer.Repositories
 {
     public class AdvisorRepository : IAdvisorRepository
     {

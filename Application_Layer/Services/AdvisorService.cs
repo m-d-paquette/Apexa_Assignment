@@ -1,9 +1,10 @@
-﻿using Apexa_API.Models;
-using Apexa_API.Repositories;
-using Apexa_API.Enum;
-using Apexa_API.Caching;
+﻿using Domain_Layer.Interfaces;
+using Domain_Layer.Entities;
+using Domain_Layer.Enums;
+using Infrastructure_Layer.Caching;
+using Application_Layer.Interfaces;
 
-namespace Apexa_API.Services
+namespace Application_Layer.Services
 {
     public class AdvisorService : IAdvisorService
     {

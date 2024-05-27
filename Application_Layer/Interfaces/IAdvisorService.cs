@@ -1,6 +1,6 @@
-﻿using Apexa_API.Models;
+﻿using Domain_Layer.Entities;
 
-namespace Apexa_API.Services
+namespace Application_Layer.Interfaces
 {
     public interface IAdvisorService
     {
